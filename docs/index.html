@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="description"
-        content="SocialCounterFactuals: Probing and Mitigating Intersectional Social Biases in Vision-Language Models with Counterfactual Examples">
+        content="Pruning the Paradox: How CLIP's Most Informative Heads Enhance Performance While Amplifying Bias">
   <meta name="keywords" content="Nerfies, D-NeRF, NeRF">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SocialCounterFactuals: Probing and Mitigating Intersectional Social Biases in Vision-Language Models with Counterfactual Examples</title>
+  <title>Pruning the Paradox: How CLIP's Most Informative Heads Enhance Performance While Amplifying Bias</title>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
@@ -48,34 +48,28 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">SocialCounterFactuals: Probing and Mitigating Intersectional Social Biases in Vision-Language Models with Counterfactual Examples</h1>
+          <h1 class="title is-1 publication-title">Pruning the Paradox: How CLIP's Most Informative Heads Enhance Performance While Amplifying Bias</h1>
           <div class="is-size-5 publication-authors">
             <!-- Paper authors -->
-            <span class="author-block">  
-              <a href="https://scholar.google.com/citations?user=EKh822gAAAAJ&hl=en" target="_blank">Phillip Howard</a>,&nbsp;</span>
-            <span class="author-block">
-              <a href="https://avinashsai.github.io/" target="_blank">Avinash Madasu</a>,&nbsp;</span>
-            <span class="author-block">
-                <a href="https://www.linkedin.com/in/tiep-le/" target="_blank">Tiep Le</a>,&nbsp;</span>
-            <span class="author-block">
-              <a href="https://scholar.google.com.mx/citations?user=romEvmUAAAAJ&hl=en" target="_blank">Gustavo Lujan Moreno</a>,&nbsp;</span>
-            <span class="author-block">
-              <a href="https://www.linkedin.com/in/anahita-bhiwandiwalla-68714917/" target="_blank">Anahita Bhiwandiwalla</a>,&nbsp;</span>
-            <span class="author-block">
-                <a href="https://scholar.google.com/citations?user=Qbu4oKwAAAAJ&hl=en" target="_blank">Vasudev Lal</a>&nbsp;</span>
-            </div>
+              <span class="author-block">
+                <a href="https://avinashsai.github.io/" target="_blank">Avinash Madasu<sup>1</sup></a>,&nbsp;</span>
+                  <span class="author-block">
+                      <a href="https://scholar.google.com/citations?user=Qbu4oKwAAAAJ&hl=en" target="_blank">Vasudev Lal<sup>2</sup></a>,&nbsp;</span>
+                  <span class="author-block">  
+                      <a href="https://scholar.google.com/citations?user=EKh822gAAAAJ&hl=en" target="_blank">Phillip Howard<sup>3</sup></a>&nbsp;</span>
+                    </div>
 
-            <div class="is-size-5 publication-authors">
-              <span class="author-block">Cognitive AI, Intel Labs &nbsp</span>
-            </div>
-
-          
+                  <div class="is-size-5 publication-authors">
+                    <span class="author-block">Intel Labs<sup>1</sup>,&nbsp</span> 
+                    <span class="author-block">Oracle<sup>2</sup>,&nbsp</span>
+                    <span class="author-block">Thoughtworks<sup>3</sup>&nbsp</span>
+                  </div>
 
           <div class="column has-text-centered">
             <div class="publication-links">
               <!-- PDF Link. -->
               <span class="link-block">
-                <a href="https://arxiv.org/abs/2312.00825"
+                <a href="https://arxiv.org/abs/2503.11103"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fas fa-file-pdf"></i>
@@ -84,7 +78,7 @@
                 </a>
               </span>
               <span class="link-block">
-                <a href="https://arxiv.org/abs/2312.00825"
+                <a href="https://arxiv.org/abs/2503.11103"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="ai ai-arxiv"></i>
@@ -105,7 +99,7 @@
             -->
               <!-- Code Link. -->
               <span class="link-block">
-                <a href="https://github.com/IntelLabs/multimodal_cognitive_ai/tree/main/SocialCounterfactuals"
+                <a href="https://github.com/avinashsai/CCS-CLIP"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-github"></i>
@@ -113,16 +107,6 @@
                   <span>Code</span>
                   </a>
               </span>
-              <!-- Dataset Link. -->
-              <span class="link-block">
-                <a href="https://huggingface.co/datasets/Intel/SocialCounterfactuals" target="_blank"
-                class="external-link button is-normal is-rounded is-dark">
-                <span class="icon">
-                  <p style="font-size:20px">&#x1F917;</p>
-                </span>
-                <span>Data</span>
-              </a>
-            </span>
             </div>
 
           </div>
@@ -141,23 +125,23 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            While vision-language models (VLMs) have achieved remarkable performance improvements recently, there is growing evidence 
-            that these models also posses harmful biases with respect to social attributes such as gender and race. Prior studies have 
-            primarily focused on probing such bias attributes individually while ignoring biases associated with intersections between 
-            social attributes. This could be due to the difficulty of collecting an exhaustive set of image-text pairs for various 
-            combinations of social attributes. 
+            CLIP is one of the most popular foundation models and is heavily used for many visionlanguage tasks, yet little is known about its 
+            inner workings. As CLIP is increasingly deployed in real-world applications, it is becoming even more critical to understand its limitations 
+            and embedded social biases to mitigate potentially harmful downstream consequences.
             </p>
             <p>
-              To address this challenge, we employ text-to-image diffusion models to produce  counterfactual examples for probing intersectional 
-              social biases at scale. Our approach utilizes Stable Diffusion with cross attention control to produce sets of counterfactual image-text pairs that are highly similar in their depiction 
-              of a subject (e.g., a given occupation) while differing only in their depiction of intersectional social attributes 
-              (e.g., race & gender). 
+            However, the question of what internal mechanisms 
+            drive both the impressive capabilities as well as problematic shortcomings of CLIP has largely remained unanswered. To bridge
+            this gap, we study the conceptual consistency of text descriptions for attention heads in CLIPlike models. Specifically, we propose Concept
+            Consistency Score (CCS), a novel interpretability metric that measures how consistently individual attention heads in CLIP models align
+            with specific concepts.
             </p>
             <p>
-            Through our over-generate-then-filter methodology, we produce SocialCounterfactuals, a high-quality 
-            dataset containing over 171k image-text pairs for probing intersectional biases related to gender, race, and physical characteristics. 
-            We conduct extensive experiments to demonstrate the usefulness of our generated dataset for probing and mitigating intersectional 
-            social biases in state-of-the-art VLMs.
+            Our soft-pruning experiments reveal that high CCS heads are critical for preserving model performance, as pruning
+            them leads to a significantly larger performance drop than pruning random or low CCS heads. Notably, we find that high CCS heads capture
+            essential concepts and play a key role in out-ofdomain detection, concept-specific reasoning, and video-language understanding. Moreover,
+            we prove that high CCS heads learn spurious correlations which amplify social biases. These results position CCS as a powerful interpretability 
+            metric exposing the paradox of performance and social biases in CLIP models.
             </p>
           </p>
         </div>
@@ -172,52 +156,42 @@
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Generating SocialCounterfactuals</h2>
+        <h2 class="title is-3">Concept Consistency Score (CCS)</h2>
 
         <div class="content has-text-justified">
           <p>
-            Our approach to creating counterfactual image-text examples for intersectional social biases consists of three steps. (1) First,
-          we construct sets of image captions describing a subject with counterfactual changes to intersecting social attributes. (2) We
-          then utilize a text-to-image diffusion model with cross attention control to over-generate sets of images corresponding 
-          to the counterfactual captions, where differences among images are isolated to the induced counterfactual change (i.e., the 
-          social attributes). (3) Finally, we apply stringent filtering to identify only the highest-quality generations
+            We introduce the Concept Consistency Score (CCS) as a systematic metric for analyzing the concepts (properties) learned by 
+            transformer layers and attention heads in CLIP-like models. This score quantifies the alignment between the textual 
+            representations produced by a given head and an assigned concept label.
           </p>
           <figure>
             <img src="images/methodology.png" alt="Teaser" width="100%">
-            <figcaption><b>Figure: Overview of our methodology for generating SocialCounterfactuals.</b></figcaption>
+            <figcaption><b>Figure: Illustration of our approach to computing Concept Consistency Score for each attention head.</b></figcaption>
           </figure>
 
-          <br><br>
+          <br>
           <p>
-            We group counterfactual sets into three dataset segments based on the pair of attribute types used to construct
-            the captions, which are detailed in each row of Table 1. In total, our dataset consists of 13,824 counterfactual sets with
-            170,832 image-text pairs, which represents the largest paired image-text dataset for investigating social biases to-date.
+            From each layer and attention head of the CLIP model, we obtain a set of five textual outputs, denoted as {T1, T2, T3, T4, T5}, referred to as 
+            TEXTSPANs. These outputs serve as a textual approximation of the concepts encoded by the head. Using in-context learning with ChatGPT, we analyze the set of five TEXTSPAN outputs and infer a
+            concept label C<sub>h</sub> that best represents the dominant concept captured by the attention head h. This ensures that the label is data-driven and reflects the
+            most salient pattern learned by the head. To assess the consistency of a head with respect to its assigned concept label, we employ three state-ofthe-art foundational models, GPT-4o, Gemini 1.5
+            pro and Claude Sonnet as external evaluators. For each TEXTSPAN T<sub>i</sub> associated with head h, GPT4o determines whether it aligns with the assigned
+            concept C<sub>h</sub>. The Concept Consistency Score (CCS) for head h is then computed as:
           </p>
+        <figure>
+          <img src="images/ccs.png" alt="statistics" width="50%">
+        </figure>
+
+        <br>
+        <p>
+          We define CCS@K as the fraction of attention heads in a CLIP model that have a Concept Consistency Score (CCS) of K. This metric provides a
+          global measure of how many heads strongly encode interpretable concepts. A higher CCS@K value indicates that a greater proportion of heads exhibit
+          strong alignment with a single semantic property. Mathematically, CCS@K is defined as:
+        </p>
+        <figure>
+          <img src="images/ccs-k.png" alt="statistics" width="50%">
+        </figure>
         </div>
-        <figure>
-          <img src="images/statistics.png" alt="statistics" width="100%">
-          <figcaption><b>Table: Details of the number of counterfactual sets, images per set, and total images which remain in our dataset after filtering.</b></figcaption>
-        </figure>
-
-        <br><br>
-        <figure>
-          <img src="images/race_gender_construction_worker_0_1x6.png" alt="statistics" width="100%">
-          <figcaption><b>Figure: Example of counterfactual image set for race-gender attributes.</b></figcaption>
-        </figure>
-
-        <br><br>
-        <figure>
-          <img src="images/occupation-physical-gender-examples.png" alt="statistics" width="100%">
-          <figcaption><b>Figure: Example of counterfactual image sets for physical characteristics-gender attributes.</b></figcaption>
-        </figure>
-
-        <br><br>
-        <figure>
-          <img src="images/occupation-physical-race-examples.png" alt="statistics" width="100%">
-          <figcaption><b>Figure: Example of counterfactual image sets for physical characteristics-race attributes.</b></figcaption>
-        </figure>
-
-        
       </div>
     </div>
   </div>
@@ -227,40 +201,22 @@
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Probing Intersectional Biases</h2>
+        <h2 class="title is-3">Evaluating LLM Judgment Alignment with Human Annotations</h2>
 
         <div class="content has-text-justified">
-          To probe intersectional social biases in VLMs, we calculate MaxSkew@K over our dataset for six state-of-the-art VLMs: <a href="https://arxiv.org/abs/2308.08428">ALIP</a>,
-          <a href="https://arxiv.org/abs/2103.00020">CLIP</a>, <a href="https://flava-model.github.io/">FLAVA</a>, <a href="https://arxiv.org/abs/2305.20088">LaCLIP</a>,
-          <a href="https://github.com/mlfoundations/open_clip">OpenCLIP</a> and <a href="https://arxiv.org/abs/2112.12750">SLIP</a>. 
-          We calculate MaxSkew@K by retrieving images from our counterfactual sets using prompts which are neutral with respect to the
-          investigated attributes. For example, given a prompt constructed from the template <q>A {race} {gender} construction
-          worker</q>, we form its corresponding attribute netural prompt <q>A construction worker.</q> We construct neutral prompts in 
-          this manner for each unique combination of prefixes and subjects, averaging their text representations across different 
-          prefixes to obtain a single text embedding for each subject. MaxSkew@K is then calculated by retrieving the top-K
-          images for the computed text embedding from the set of all images generated for the subject which met our filtering and
-          selection criteria. We set K = |A<sub>1</sub>| × |A<sub>2</sub>|, where A<sub>1</sub> and A<sub>2</sub> are the 
-          investigated attribute sets.
+          <p>
+          In the previous section, we introduced the Concept Consistency Score (CCS), computed using three LLM judges as an 
+          external evaluator. This raises an important question: Are LLM evaluations reliable and aligned with human assessments? 
+          To investigate this, we conducted a human evaluation study comparing LLM-generated judgments with human annotations. 
+          We selected 100 TEXTSPAN descriptions from three different models, along with their assigned concept labels, and asked 
+          one of the authors to manually assess the semantic alignment between each span and its corresponding label. Table below reports the agreement metrics between
+        human and LLM evaluations, including Cohen’s  Kappa, Spearman’s ρ, and Kendall’s τ.
+        </p>
+        <figure>
+          <img src="images/human-eval.png" alt="statistics" width="50%">
+          <figcaption><b>Figure: Results between human judgment and LLM judgment on CCS labelling. SC denotes Spearman’s correlation.</b></figcaption>
+        </figure>
         </div>
-
-        <br><br>
-        <figure>
-          <img src="images/distribution-occupations.png" alt="statistics" width="100%">
-          <figcaption><b>Figure: Distribution of MaxSkew@K measured across occupations for (a) Race-Gender, (b) Physical Characteristics-Gender, and (c)
-            Physical Characteristics-Race intersectional biases. Max (min) values are plotted as red (green) circles with corresponding occupation names</b></figcaption>
-        </figure>
-
-        <br><br>
-        <figure>
-          <img src="images/marginal-gender.png" alt="statistics" width="70%">
-          <figcaption><b>Figure: Mean of (marginal) gender MaxSkew@K measured across occupations for different races.</b></figcaption>
-        </figure>
-
-        <br><br>
-        <figure>
-          <img src="images/doctor.png" alt="statistics" width="100%">
-          <figcaption><b>Figure: Proportion of images retrieved @k = 12 using neutral prompts for the <q>Doctor</q> occupation.</b></figcaption>
-        </figure>
       </div>
     </div>
   </div>
@@ -270,37 +226,217 @@
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Mitigating Intersectional Biases</h2>
+        <h2 class="title is-3">Interpretable CLIP Models: The Role of CCS.</h2>
 
         <div class="content has-text-justified">
-          We investigate the suitability of our SocialCounterfactuals dataset for debiasing VLMs through additional training. For each of 
-          the three segments of our dataset we withhold counterfactual sets associated with 20% of the occupation subjects for testing 
-          and use the remainder as a training dataset. We then separately finetune ALIP, CLIP, and FLAVA on each of these three 
-          training datasets, which we hereafter refer to as the <q>debiased</q> variants of these models. o estimate the magnitude 
-          of debiasing, we evaluate each model's MaxSkew@K for intersectional bias using the withheld testing dataset containing 
-          20% of the occupations.
-        </div>
-        <figure>
-          <img src="images/debiasing.png" alt="statistics" width="100%">
-          <figcaption><b>Table: Mean of MaxSkew@K for pre-trained and debiased variants of CLIP, ALIP, and FLAVA, estimated by 
-            withholding counterfactual sets for 20% of the occupations in our dataset. Best results are in bold.</b></figcaption>
+          <p>
+          In this section we examine the role of the Concept Consistency Score (CCS) in revealing CLIP’s decision-making process, 
+          focusing on the question: How does CCS provide deeper insights into the functional role of individual attention heads in 
+          influencing downstream tasks? To explore this, we perform a soft-pruning analysis by zeroing out attention weights of 
+          heads with extreme CCS values—specifically, high CCS (CCS = 5) and low CCS (CCS ≤ 1). This approach disables selected
+          heads without modifying the model architecture. As shown in Table below, pruning high-CCS heads consistently causes significant 
+          drops in zero-shot classification performance across CIFAR-10, CIFAR100 and FOOD-101 while pruning low-CCS heads
+          has a minimal effect. This performance gap demonstrates that CCS effectively identifies heads encoding critical, 
+          concept-aligned information, making it a reliable tool for interpreting CLIP’s internal decision-making mechanisms.
+          </p>
+          <figure>
+          <img src="images/prune-high-low.png" alt="statistics" width="100%">
+          <figcaption><b>Figure: Accuracy comparison of various CLIP models on CIFAR-10, CIFAR-100 and FOOD-101 datasets.
+The values represent original accuracy, performance after pruning high-CCS heads, and performance after
+pruning low-CCS heads.</b></figcaption>
         </figure>
-        
-        <br><br>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Pruning equal number of high CCS, low CCS and random heads.</h2>
+
         <div class="content has-text-justified">
-          Since our dataset was synthetically generated, a natural question to ask is how well our observed debiasing effects 
-          extend to evaluations with real image-text pairs. Unfortunately, there are no such existing resources for measuring the 
-          intersectional social biases that we investigate in this work. However, several real image-text datasets have
-          been proposed for evaluating (marginal) social biases for attributes such as perceived race and gender. To evaluate our 
-          Debiased CLIP model on such datasets, we use the Protected-Attribute Tag Association (PATA) dataset for nuanced 
-          reporting of biases associated with race, age, and gender protected attributes. We also evaluate our Debiased CLIP 
-          model on the Visogender dataset which was curated to benchmark gender bias in image-text pronoun resolution.
-        </div>
-        <figure>
-          <img src="images/debiasing-external.png" alt="statistics" width="70%">
-          <figcaption><b>Table: MaxSkew@K of our debiased CLIP model as well as pre-trained CLIP on the 
-          VisoGender and PATA datasets.</b></figcaption>
+          <p>
+          In the previous section, we showed that attention heads with high Concept Consistency Scores (CCS) are crucial to 
+          CLIP’s performance. To validate whether these heads are truly more important than others, we perform a controlled 
+          comparison against random pruning. Specifically, we randomly prune the same number of attention heads—excluding
+          high-CCS heads—and repeat this across five seeds, averaging the results. As illustrated in Figure below,
+          pruning high-CCS heads consistently causes a significantly larger drop in zero-shot accuracy compared to random pruning across datasets and model
+          variants. In contrast, random pruning results in only minor performance degradation, highlighting the
+          functional importance of high-CCS heads. Interestingly, we also find that larger CLIP models show
+          a smaller performance gap between high-CCS and random pruning, suggesting that larger architectures may be more 
+          robust due to greater redundancy or more distributed representations.
+          </p>
+          <figure>
+          <img src="images/random-prune.png" alt="statistics" width="100%">
+          <figcaption><b>Figure: Zero-shot performance comparison for CIFAR-10, CIFAR-100, and Food-101 datasets under
+different pruning strategies. For random pruning, results are averaged across five runs.</b></figcaption>
         </figure>
+
+        <br>
+        <p>
+          We conducted experiments where we
+pruned an equal number of high and low CCS attention heads across multiple datasets (CIFAR-100,
+FOOD-101, Country-211). Results are shown in
+the table 7. From the table, we observe that pruning high-CCS heads leads to a substantially larger
+performance drop, even when the number of pruned
+heads is held constant. This effectively rules out the
+explanation that the observed degradation is merely
+due to pruning more heads in the high-CCS condition. Taken together, these findings support CCS as
+a reliable and interpretable metric for identifying
+concept-relevant heads and offer deeper insights
+into how CLIP organizes conceptual information.
+        </p>
+        <figure>
+          <img src="images/high-random-equal.png" alt="statistics" width="100%">
+          <figcaption><b>Figure: Accuracy comparison of various CLIP models on CIFAR-100, FOOD-101 and Country-211 datasets.</b></figcaption>
+        </figure>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">High CCS heads are crucial for out-of-domain (OOD) detection</h2>
+
+        <div class="content has-text-justified">
+          <p>
+          While our earlier experiments primarily focused on in-domain datasets such as CIFAR-10 and CIFAR100 to validate the 
+          Concept Consistency Score (CCS), understanding model behavior under out-ofdomain (OOD) conditions is a critical step 
+          toward evaluating models’ robustness. Table below demonstrates the results on ImageNet-A and ImageNet-R
+        datasets respectively. From the table, we observe that pruning heads with high CCS scores leads to a
+        substantial degradation in model performance, underscoring the critical role these heads play in the
+        model’s decision-making process.
+          </p>
+          <figure>
+          <img src="images/ood.png" alt="statistics" width="100%">
+          <figcaption><b>Figure: Accuracy comparison of various CLIP models on Country-211, Oxford-pets, ImageNet-A and
+ImageNet-R datasets.</b></figcaption>
+        </figure>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">High CCS heads are crucial for concept-specific tasks.</h2>
+
+        <div class="content has-text-justified">
+          <p>
+          To investigate the functional role of high Concept Consistency Score (CCS) heads, we conduct concept-specific pruning 
+          experiments. In these experiments, we prune heads with high CCS scores corresponding to a target concept (e.g., locations)
+          and evaluate the model’s performance on tasks aligned with that concept, such as location classification. 
+          In contrast, we also prune heads associated with unrelated concepts (e.g., animals) and assess the resulting impact 
+          on task performance. Our results indicate that pruning high CCS heads leads to a significant drop in 
+          task performance, validating that these heads encode essential concept relevant information. In more general classification 
+          tasks, objectrelated heads consistently exhibit a greater impact on performance than location or color heads.
+          </p>
+          <figure>
+          <img src="images/location.png" alt="statistics" width="70%">
+          <figcaption><b>Figure: Zero-shot results on Country-211 (location) dataset.</b></figcaption>
+        </figure>
+        <br><br>
+        <figure>
+          <img src="images/objects.png" alt="statistics" width="70%">
+          <figcaption><b>Figure: Zero-shot results on CIFAR-10 (Objects) dataset.</b></figcaption>
+        </figure>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Impact of CCS pruning on zero-shot video
+retrieval</h2>
+
+        <div class="content has-text-justified">
+          <p>
+          To further assess the importance of high CCS
+heads for downstream tasks, we conducted zeroshot video retrieval experiments on three popular
+datasets (MSRVTT, MSVD, and DIDEMO) under
+different pruning strategies. The results in Figure
+ show that pruning high CCS (Concept Consistency Score) heads consistently leads to a substantial drop in performance across all datasets, demonstrating their critical role in preserving CLIP’s retrieval capabilities. For instance, on MSRVTT and
+MSVD, high CCS pruning significantly underperforms compared to low CCS and random head
+pruning, which show much milder performance
+degradation. Interestingly, low CCS and random
+head pruning maintain performance much closer to
+the original unpruned model, indicating that not all
+attention heads contribute equally to model competence. This consistent trend across datasets highlights that heads with high CCS scores are essential
+for encoding concept-aligned information necessary for accurate zero-shot video retrieval.
+          </p>
+          <figure>
+          <img src="images/video-ret.png" alt="statistics" width="100%">
+          <figcaption><b>Figure: Zero-shot performance comparison of unpruned (original) model, pruning high CSS, low CSS and
+random heads on video retrieval task.</b></figcaption>
+        </figure>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">CLIP’s high-CCS heads encode features that drive social biases.</h2>
+
+        <div class="content has-text-justified">
+          <p>
+          Previously, we established that high-CCS heads
+in CLIP models are crucial for image and video
+tasks and pruning them leads to significant drop
+in performance. Now, we investigate if these high
+CCS heads learn spurious features leading to social biases. For this, we perform soft pruning experiment on FairFace and SocialCounterFactuals
+datasets. Here given neutral text prompts of 104
+occupations*, we measure MaxSkew across race
+and gender in the dataset
+          </p>
+          <br>
+          <p>
+          On the FairFace dataset, pruning high-CCS heads consistently reduces the MaxSkew values for both race and gender 
+          across all models. These drops, although modest in some cases, indicate a consistent
+trend: high-CCS heads are contributing disproportionately to skewed model predictions. The effect
+is even more evident on the SocialCounterfactuals
+dataset, where MaxSkew values drop substantially
+upon pruning high-CCS heads
+          </p>
+          <br>
+          <figure>
+          <img src="images/fairface.png" alt="statistics" width="100%">
+          <figcaption><b>Figure: Comparison of original and high-CCS pruning on FairFace dataset for race and gender.</b></figcaption>
+        </figure>
+          <br>
+          <figure>
+          <img src="images/soco.png" alt="statistics" width="100%">
+          <figcaption><b>Figure: Comparison of original and high-CCS softpruning on SocialCounterFactuals dataset for race
+and gender.</b></figcaption>
+        </figure>
+          <p>
+          These results reveal a fundamental paradox at
+the heart of CLIP models: high-CCS heads, while
+critical for strong performance in tasks such as classification, retrieval, and concept alignment, are also
+the primary contributors to social bias. Pruning
+these heads leads to a notable reduction in model
+bias, as shown in our experiments, but also comes
+at the cost of reduced performance—a clear tradeoff between fairness and utility.
+            </p>
+        </div>
       </div>
     </div>
   </div>
@@ -309,11 +445,11 @@
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
-    <pre><code>@article{howard2023probing,
-      title={Probing and Mitigating Intersectional Social Biases in Vision-Language Models with Counterfactual Examples},
-      author={Howard, Phillip and Madasu, Avinash and Le, Tiep and Moreno, Gustavo Lujan and Bhiwandiwalla, Anahita and Lal, Vasudev},
-      journal={CVPR},
-      year={2024},
+    <pre><code>@article{madasu2025pruning,
+      title={Pruning the Paradox: How CLIP's Most Informative Heads Enhance Performance While Amplifying Bias},
+      author={Madasu, Avinash and Lal, Vasudev and Howard, Phillip},
+      journal={EMNLP},
+      year={2025},
     }</code></pre>
   </div>
 </section>
