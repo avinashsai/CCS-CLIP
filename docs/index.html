@@ -125,14 +125,14 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            CLIP is one of the most popular foundation models and is heavily used for many visionlanguage tasks, yet little is known about its 
+            CLIP is one of the most popular foundation models and is heavily used for many vision language tasks, yet little is known about its 
             inner workings. As CLIP is increasingly deployed in real-world applications, it is becoming even more critical to understand its limitations 
             and embedded social biases to mitigate potentially harmful downstream consequences.
             </p>
             <p>
             However, the question of what internal mechanisms 
             drive both the impressive capabilities as well as problematic shortcomings of CLIP has largely remained unanswered. To bridge
-            this gap, we study the conceptual consistency of text descriptions for attention heads in CLIPlike models. Specifically, we propose Concept
+            this gap, we study the conceptual consistency of text descriptions for attention heads in CLIP like models. Specifically, we propose Concept
             Consistency Score (CCS), a novel interpretability metric that measures how consistently individual attention heads in CLIP models align
             with specific concepts.
             </p>
@@ -182,7 +182,6 @@
           <img src="images/ccs.png" alt="statistics" width="50%">
         </figure>
 
-        <br>
         <p>
           We define CCS@K as the fraction of attention heads in a CLIP model that have a Concept Consistency Score (CCS) of K. This metric provides a
           global measure of how many heads strongly encode interpretable concepts. A higher CCS@K value indicates that a greater proportion of heads exhibit
@@ -197,7 +196,7 @@
           <figcaption><b>Figure: Examples of high, moderate and low CCS heads.</b></figcaption>
         </figure>
         <figure>
-          <img src="images/count.png" alt="count" width="50%">
+          <img src="images/count.png" alt="count" width="70%">
           <figcaption><b>Figure: Count of high, medium and low CCS heads in CLIP models.</b></figcaption>
         </figure>
         </div>
@@ -210,7 +209,7 @@
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Evaluating LLM Judgment Alignment with Human Annotations</h2>
+        <h3 class="title is-4">Evaluating LLM Judgment Alignment with Human Annotations</h3>
 
         <div class="content has-text-justified">
           <p>
@@ -222,8 +221,8 @@
         human and LLM evaluations, including Cohen’s  Kappa, Spearman’s ρ, and Kendall’s τ.
         </p>
         <figure>
-          <img src="images/human-eval.png" alt="human-eval" width="50%">
-          <figcaption><b>Figure: Results between human judgment and LLM judgment on CCS labelling. SC denotes Spearman’s correlation.</b></figcaption>
+          <img src="images/human-eval.png" alt="human-eval" width="70%">
+          <figcaption><b>Table: Results between human judgment and LLM judgment on CCS labelling. SC denotes Spearman’s correlation.</b></figcaption>
         </figure>
         </div>
       </div>
@@ -250,9 +249,7 @@
           </p>
           <figure>
           <img src="images/prune-high-low.png" alt="statistics" width="100%">
-          <figcaption><b>Figure: Accuracy comparison of various CLIP models on CIFAR-10, CIFAR-100 and FOOD-101 datasets.
-The values represent original accuracy, performance after pruning high-CCS heads, and performance after
-pruning low-CCS heads.</b></figcaption>
+          <figcaption><b>Table: Accuracy comparison of various CLIP models on CIFAR-10, CIFAR-100 and FOOD-101 datasets.</b></figcaption>
         </figure>
         </div>
       </div>
@@ -264,7 +261,7 @@ pruning low-CCS heads.</b></figcaption>
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Pruning equal number of high CCS, low CCS and random heads.</h2>
+        <h2 class="title is-4">Pruning equal number of high CCS, low CCS and random heads.</h2>
 
         <div class="content has-text-justified">
           <p>
@@ -300,7 +297,7 @@ into how CLIP organizes conceptual information.
         </p>
         <figure>
           <img src="images/high-random-equal.png" alt="statistics" width="100%">
-          <figcaption><b>Figure: Accuracy comparison of various CLIP models on CIFAR-100, FOOD-101 and Country-211 datasets.</b></figcaption>
+          <figcaption><b>Table: Accuracy comparison of various CLIP models on CIFAR-100, FOOD-101 and Country-211 datasets.</b></figcaption>
         </figure>
         </div>
       </div>
@@ -312,7 +309,7 @@ into how CLIP organizes conceptual information.
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">High CCS heads are crucial for out-of-domain (OOD) detection</h2>
+        <h2 class="title is-4">High CCS heads are crucial for out-of-domain (OOD) detection</h2>
 
         <div class="content has-text-justified">
           <p>
@@ -325,7 +322,7 @@ into how CLIP organizes conceptual information.
           </p>
           <figure>
           <img src="images/ood.png" alt="statistics" width="100%">
-          <figcaption><b>Figure: Accuracy comparison of various CLIP models on Country-211, Oxford-pets, ImageNet-A and
+          <figcaption><b>Table: Accuracy comparison of various CLIP models on Country-211, Oxford-pets, ImageNet-A and
 ImageNet-R datasets.</b></figcaption>
         </figure>
         </div>
@@ -338,7 +335,7 @@ ImageNet-R datasets.</b></figcaption>
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">High CCS heads are crucial for concept-specific tasks.</h2>
+        <h2 class="title is-4">High CCS heads are crucial for concept-specific tasks.</h2>
 
         <div class="content has-text-justified">
           <p>
@@ -354,7 +351,6 @@ ImageNet-R datasets.</b></figcaption>
           <img src="images/location.png" alt="statistics" width="70%">
           <figcaption><b>Figure: Zero-shot results on Country-211 (location) dataset.</b></figcaption>
         </figure>
-        <br><br>
         <figure>
           <img src="images/objects.png" alt="statistics" width="70%">
           <figcaption><b>Figure: Zero-shot results on CIFAR-10 (Objects) dataset.</b></figcaption>
@@ -370,8 +366,7 @@ ImageNet-R datasets.</b></figcaption>
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Impact of CCS pruning on zero-shot video
-retrieval</h2>
+        <h2 class="title is-4">Impact of CCS pruning on zero-shot video retrieval</h2>
 
         <div class="content has-text-justified">
           <p>
@@ -403,7 +398,7 @@ random heads on video retrieval task.</b></figcaption>
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">CLIP’s high-CCS heads encode features that drive social biases.</h2>
+        <h2 class="title is-4">CLIP’s high-CCS heads encode features that drive social biases.</h2>
 
         <div class="content has-text-justified">
           <p>
@@ -413,8 +408,8 @@ tasks and pruning them leads to significant drop
 in performance. Now, we investigate if these high
 CCS heads learn spurious features leading to social biases. For this, we perform soft pruning experiment on FairFace and SocialCounterFactuals
 datasets. Here given neutral text prompts of 104
-occupations*, we measure MaxSkew across race
-and gender in the dataset
+occupations, we measure MaxSkew across race
+and gender in the dataset.
           </p>
           <br>
           <p>
@@ -423,17 +418,15 @@ and gender in the dataset
 trend: high-CCS heads are contributing disproportionately to skewed model predictions. The effect
 is even more evident on the SocialCounterfactuals
 dataset, where MaxSkew values drop substantially
-upon pruning high-CCS heads
+upon pruning high-CCS heads.
           </p>
-          <br>
           <figure>
           <img src="images/fairface.png" alt="statistics" width="100%">
-          <figcaption><b>Figure: Comparison of original and high-CCS pruning on FairFace dataset for race and gender.</b></figcaption>
+          <figcaption><b>Table: Comparison of original and high-CCS pruning on FairFace dataset for race and gender.</b></figcaption>
         </figure>
-          <br>
           <figure>
           <img src="images/soco.png" alt="statistics" width="100%">
-          <figcaption><b>Figure: Comparison of original and high-CCS softpruning on SocialCounterFactuals dataset for race
+          <figcaption><b>Table: Comparison of original and high-CCS softpruning on SocialCounterFactuals dataset for race
 and gender.</b></figcaption>
         </figure>
           <p>
@@ -443,7 +436,7 @@ critical for strong performance in tasks such as classification, retrieval, and 
 the primary contributors to social bias. Pruning
 these heads leads to a notable reduction in model
 bias, as shown in our experiments, but also comes
-at the cost of reduced performance—a clear tradeoff between fairness and utility.
+at the cost of reduced performance, a clear tradeoff between fairness and utility.
             </p>
         </div>
       </div>
